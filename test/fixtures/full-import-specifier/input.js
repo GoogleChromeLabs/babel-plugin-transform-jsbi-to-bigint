@@ -16,6 +16,7 @@ import JSBI from './foo/bar/jsbi.mjs';
 const a = JSBI.BigInt(Number.MAX_SAFE_INTEGER);
 const b = JSBI.BigInt(12);
 console.log(JSBI.add(a, b));
+JSBI.BigInt('1');
 JSBI.BigInt('34');
 JSBI.BigInt('00034');
 

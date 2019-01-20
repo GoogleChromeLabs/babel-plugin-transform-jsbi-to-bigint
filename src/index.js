@@ -79,7 +79,7 @@ export default function(babel) {
   };
 
   const createBigIntConstructor = (path) => {
-    const reInteger = /^(?:0|[1-9][0-9]+)$/;
+    const reInteger = /^(?:0|[1-9][0-9]*)$/;
     const arg = path.node.arguments[0];
     if (t.isNumericLiteral(arg) ||
         (t.isStringLiteral(arg) && reInteger.test(arg.value))) {

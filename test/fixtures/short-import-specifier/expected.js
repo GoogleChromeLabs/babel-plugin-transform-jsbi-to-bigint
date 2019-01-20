@@ -13,6 +13,7 @@
 const a = BigInt(Number.MAX_SAFE_INTEGER);
 const b = 12n;
 console.log(a + b);
+1n;
 34n;
 BigInt('00034');
 34n;
