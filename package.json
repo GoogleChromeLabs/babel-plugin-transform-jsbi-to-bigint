@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-transform-jsbi-to-bigint",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Compile JSBI code to native BigInt code.",
   "keywords": [
     "babel-plugin",
