@@ -43,6 +43,12 @@ const unaryFunctionToExpression = new Map([
   ['bitwiseNot', '~'],
 ]);
 
+// https://github.com/GoogleChromeLabs/jsbi#how
+const staticMethods = new Set([
+  'asIntN',
+  'asUintN',
+]);
+
 const DATA_IDENTIFIER = 'JSBI';
 
 export default function(babel) {
@@ -67,6 +73,16 @@ export default function(babel) {
       }
       return t.unaryExpression(unaryFunctionToExpression.get(name),
           args[0]);
+    }
+    if (staticMethods.has(name)) {
+      if (args.length !== 2) {
+        throw path.buildCodeFrameError(
+            'Static methods must have exactly two arguments');
+      }
+      return t.callExpression(
+          t.memberExpression(
+              t.identifier('BigInt'), t.identifier(name)),
+          args);
     }
     if (name === 'toNumber') {
       if (args.length !== 1) {

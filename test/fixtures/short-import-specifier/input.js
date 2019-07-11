@@ -55,3 +55,6 @@ JSBI.GE(a, b);
 
 a.toString();
 JSBI.toNumber(a);
+
+JSBI.asIntN(64, JSBI.BigInt('42'));
+JSBI.asUintN(64, JSBI.BigInt('42'));
