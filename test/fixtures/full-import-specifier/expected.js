@@ -44,3 +44,5 @@ a > b;
 a >= b;
 a.toString();
 Number(a);
+BigInt.asIntN(64, 42n);
+BigInt.asUintN(64, 42n);

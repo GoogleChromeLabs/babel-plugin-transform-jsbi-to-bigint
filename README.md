@@ -35,6 +35,9 @@ JSBI.greaterThanOrEqual(a, b);
 
 a.toString();
 JSBI.toNumber(a);
+
+JSBI.asIntN(64, JSBI.BigInt('42'));
+JSBI.asUintN(64, JSBI.BigInt('42'));
 ```
 
 Transpiled output using [native `BigInt`s](https://developers.google.com/web/updates/2018/05/bigint):
@@ -66,6 +69,9 @@ a >= b;
 
 a.toString();
 Number(a);
+
+BigInt.asIntN(64, 42n);
+BigInt.asUintN(64, 42n);
 ```
 
 See [the JSBI documentation](https://github.com/GoogleChromeLabs/jsbi) for more information.

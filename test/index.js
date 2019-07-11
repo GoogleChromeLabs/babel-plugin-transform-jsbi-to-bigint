@@ -31,6 +31,10 @@ describe('babel-plugin-transform-jsbi-to-bigint', () => {
       const expected = fs.readFileSync(
           path.join(fixtureDir, 'expected.js')
       ).toString();
+      // To update expectation files:
+      // fs.writeFileSync(
+      //     path.join(fixtureDir, 'expected.js'),
+      //     `${actual.trim()}\n`);
       assert.equal(actual.trim(), expected.trim());
     });
   });
