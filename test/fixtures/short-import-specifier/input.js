@@ -46,6 +46,7 @@ JSBI.lessThan(a, b);
 JSBI.lessThanOrEqual(a, b);
 JSBI.greaterThan(a, b);
 JSBI.greaterThanOrEqual(a, b);
+JSBI.notEqual(a, b);
 
 JSBI.EQ(a, b);
 JSBI.LT(a, b);

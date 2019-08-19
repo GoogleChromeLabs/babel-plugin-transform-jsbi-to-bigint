@@ -27,13 +27,13 @@
     "test:watch": "npm run test -- --watch"
   },
   "devDependencies": {
-    "@babel/cli": "^7.1.5",
-    "@babel/core": "^7.1.6",
-    "@babel/preset-env": "^7.1.6",
-    "@babel/register": "^7.0.0",
-    "eslint": "^5.9.0",
-    "eslint-config-google": "^0.11.0",
-    "mocha": "^5.2.0"
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.5.5",
+    "eslint": "^6.2.0",
+    "eslint-config-google": "^0.13.0",
+    "mocha": "^6.2.0"
   },
   "engines": {
     "node": ">=8"
