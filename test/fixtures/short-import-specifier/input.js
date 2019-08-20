@@ -42,13 +42,14 @@ JSBI.bitwiseOr(a, b);
 JSBI.bitwiseXor(a, b);
 
 JSBI.equal(a, b);
+JSBI.notEqual(a, b);
 JSBI.lessThan(a, b);
 JSBI.lessThanOrEqual(a, b);
 JSBI.greaterThan(a, b);
 JSBI.greaterThanOrEqual(a, b);
-JSBI.notEqual(a, b);
 
 JSBI.EQ(a, b);
+JSBI.NE(a, b);
 JSBI.LT(a, b);
 JSBI.LE(a, b);
 JSBI.GT(a, b);

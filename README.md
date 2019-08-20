@@ -10,7 +10,7 @@ Input using [JSBI](https://github.com/GoogleChromeLabs/jsbi):
 import JSBI from 'jsbi';
 
 const a = JSBI.BigInt(Number.MAX_SAFE_INTEGER);
-const b = JSBI.BigInt('2');
+const b = JSBI.BigInt('42');
 
 JSBI.add(a, b);
 JSBI.subtract(a, b);
@@ -28,10 +28,18 @@ JSBI.unaryMinus(a);
 JSBI.bitwiseNot(a);
 
 JSBI.equal(a, b);
+JSBI.notEqual(a, b);
 JSBI.lessThan(a, b);
 JSBI.lessThanOrEqual(a, b);
 JSBI.greaterThan(a, b);
 JSBI.greaterThanOrEqual(a, b);
+
+JSBI.EQ(a, b);
+JSBI.NE(a, b);
+JSBI.LT(a, b);
+JSBI.LE(a, b);
+JSBI.GT(a, b);
+JSBI.GE(a, b);
 
 a.toString();
 JSBI.toNumber(a);
@@ -44,7 +52,7 @@ Transpiled output using [native `BigInt`s](https://developers.google.com/web/upd
 
 ```js
 const a = BigInt(Number.MAX_SAFE_INTEGER);
-const b = 2n;
+const b = 42n;
 
 a + b;
 a - b;
@@ -62,6 +70,14 @@ a ^ b;
 ~a;
 
 a === b;
+a !== b;
+a < b;
+a <= b;
+a > b;
+a >= b;
+
+a == b;
+a != b;
 a < b;
 a <= b;
 a > b;
