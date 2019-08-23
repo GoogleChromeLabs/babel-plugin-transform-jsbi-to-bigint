@@ -191,6 +191,22 @@ export default function(babel) {
           }
         }
       },
+      BinaryExpression(path) {
+        const {operator, left, right} = path.node;
+        if (operator === 'instanceof' &&
+            t.isIdentifier(right, {name: 'JSBI'})) {
+          path.replaceWith(
+              t.binaryExpression(
+                  '===',
+                  t.unaryExpression(
+                      'typeof',
+                      left
+                  ),
+                  t.stringLiteral('bigint')
+              )
+          );
+        }
+      },
     },
   };
 }

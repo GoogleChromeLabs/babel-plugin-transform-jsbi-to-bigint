@@ -46,5 +46,6 @@ a > b;
 a >= b;
 a.toString();
 Number(a);
+typeof a === "bigint";
 BigInt.asIntN(64, 42n);
 BigInt.asUintN(64, 42n);
