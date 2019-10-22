@@ -154,7 +154,7 @@ export default function(babel) {
       },
       ImportDeclaration(path) {
         const source = path.node.source;
-        if (t.isStringLiteral(source) && /jsbi/i.test(source.value)) {
+        if (t.isStringLiteral(source) && /^jsbi$/i.test(source.value)) {
           for (const specifier of path.get('specifiers')) {
             if (t.isImportDefaultSpecifier(specifier)) {
               setJSBIProperty(specifier, '');
