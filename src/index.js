@@ -156,7 +156,8 @@ export default function(babel) {
         const source = path.node.source;
         if (t.isStringLiteral(source) &&
             // Match exact "jsbi" or ".../jsbi.mjs" paths.
-            (/^jsbi$/i.test(source.value) || /[/\\]jsbi.mjs$/i.test(source.value))) {
+            (/^jsbi$/i.test(source.value) ||
+             /[/\\]jsbi.mjs$/i.test(source.value))) {
           for (const specifier of path.get('specifiers')) {
             if (t.isImportDefaultSpecifier(specifier)) {
               setJSBIProperty(specifier, '');
