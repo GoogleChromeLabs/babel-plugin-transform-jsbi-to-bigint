@@ -101,7 +101,7 @@ export default function(babel) {
     const arg = path.node.arguments[0];
     if (t.isNumericLiteral(arg) ||
         (t.isStringLiteral(arg) && reInteger.test(arg.value))) {
-      return t.bigIntLiteral(`${ arg.value }n`);
+      return t.bigIntLiteral(`${ arg.value }`);
     }
     return t.callExpression(t.identifier('BigInt'), [arg]);
   };
