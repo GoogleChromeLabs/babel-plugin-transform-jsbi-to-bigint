@@ -203,10 +203,10 @@ export default function(babel) {
                   '===',
                   t.unaryExpression(
                       'typeof',
-                      left
+                      left,
                   ),
-                  t.stringLiteral('bigint')
-              )
+                  t.stringLiteral('bigint'),
+              ),
           );
         }
       },
