@@ -1,4 +1,4 @@
-# babel-plugin-transform-jsbi-to-bigint [![Build status](https://travis-ci.com/GoogleChromeLabs/babel-plugin-transform-jsbi-to-bigint.svg?branch=master)](https://travis-ci.com/GoogleChromeLabs/babel-plugin-transform-jsbi-to-bigint)
+# babel-plugin-transform-jsbi-to-bigint [![Build status](https://travis-ci.com/GoogleChromeLabs/babel-plugin-transform-jsbi-to-bigint.svg?branch=main)](https://travis-ci.com/GoogleChromeLabs/babel-plugin-transform-jsbi-to-bigint) [![babel-plugin-transform-jsbi-to-bigint on npm](https://img.shields.io/npm/v/babel-plugin-transform-jsbi-to-bigint)](https://www.npmjs.com/package/babel-plugin-transform-jsbi-to-bigint)
 
 Compile [JSBI](https://github.com/GoogleChromeLabs/jsbi) code that works in today’s environments to native BigInt code.
 
