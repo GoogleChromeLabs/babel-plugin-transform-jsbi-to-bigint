@@ -49,3 +49,11 @@ Number(a);
 typeof a === "bigint";
 BigInt.asIntN(64, 42n);
 BigInt.asUintN(64, 42n);
+const buffer = new ArrayBuffer(16); // 0x7FFFFFFFFFFFFFFFn, the highest possible BigInt value that fits in
+// a signed 64-bit integer.
+
+const max = 9223372036854775807n;
+const view = new DataView(buffer);
+view.setBigInt64(1, max);
+const result = view.getBigInt64(1);
+console.log(result.toString()); // → '9223372036854775807'

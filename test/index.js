@@ -29,7 +29,7 @@ describe('babel-plugin-transform-jsbi-to-bigint', () => {
         ],
       }).code;
       const expected = fs.readFileSync(
-          path.join(fixtureDir, 'expected.js')
+          path.join(fixtureDir, 'expected.js'),
       ).toString();
       // To update expectation files:
       // fs.writeFileSync(

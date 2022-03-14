@@ -61,3 +61,13 @@ a instanceof JSBI;
 
 JSBI.asIntN(64, JSBI.BigInt('42'));
 JSBI.asUintN(64, JSBI.BigInt('42'));
+
+const buffer = new ArrayBuffer(16);
+// 0x7FFFFFFFFFFFFFFFn, the highest possible BigInt value that fits in
+// a signed 64-bit integer.
+const max = JSBI.BigInt('9223372036854775807');
+const view = new DataView(buffer);
+JSBI.DataViewSetBigInt64(view, 1, max);
+const result = JSBI.DataViewGetBigInt64(view, 1);
+console.log(result.toString());
+// → '9223372036854775807'

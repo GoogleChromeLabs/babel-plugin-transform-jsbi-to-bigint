@@ -51,6 +51,14 @@ const staticMethods = new Set([
   'asUintN',
 ]);
 
+// https://github.com/GoogleChromeLabs/jsbi#how
+const dataViewMethods = new Map([
+  ['DataViewGetBigInt64', 'getBigInt64'],
+  ['DataViewSetBigInt64', 'setBigInt64'],
+  ['DataViewGetBigUint64', 'getBigUint64'],
+  ['DataViewSetBigUint64', 'setBigUint64'],
+]);
+
 const DATA_IDENTIFIER = 'JSBI';
 
 export default function(babel) {
@@ -85,6 +93,18 @@ export default function(babel) {
           t.memberExpression(
               t.identifier('BigInt'), t.identifier(name)),
           args);
+    }
+    if (dataViewMethods.has(name)) {
+      if (2 <= args.length && args.length <= 4) {
+        throw path.buildCodeFrameError(`${name}: incorrect number of arguments`);
+      }
+      const [view, ...rest] = args;
+      return t.callExpression(
+          t.memberExpression(
+              view,
+              t.identifier(dataViewMethods.get(name))),
+          rest,
+      );
     }
     if (name === 'toNumber') {
       if (args.length !== 1) {
