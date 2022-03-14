@@ -96,7 +96,8 @@ export default function(babel) {
     }
     if (dataViewMethods.has(name)) {
       if (2 <= args.length && args.length <= 4) {
-        throw path.buildCodeFrameError(`${name}: incorrect number of arguments`);
+        throw path.buildCodeFrameError(
+            `${name}: incorrect number of arguments`);
       }
       const [view, ...rest] = args;
       return t.callExpression(
