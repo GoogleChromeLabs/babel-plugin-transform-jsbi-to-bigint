@@ -95,9 +95,9 @@ export default function(babel) {
           args);
     }
     if (dataViewMethods.has(name)) {
-      if (args.length !== 2 && args.length !== 3) {
+      if (2 <= args.length && args.length <= 4) {
         throw path.buildCodeFrameError(
-            `${name} must have exactly two or three arguments`);
+            `${name}: incorrect number of arguments`);
       }
       const [view, ...rest] = args;
       return t.callExpression(
