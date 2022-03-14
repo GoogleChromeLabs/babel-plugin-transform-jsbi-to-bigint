@@ -51,8 +51,7 @@ const staticMethods = new Set([
   'asUintN',
 ]);
 
-// TODO: docs
-// https://github.com/GoogleChromeLabs/jsbi/pull/87
+// https://github.com/GoogleChromeLabs/jsbi#how
 const dataViewMethods = new Map([
   ['DataViewGetBigInt64', 'getBigInt64'],
   ['DataViewSetBigInt64', 'setBigInt64'],
