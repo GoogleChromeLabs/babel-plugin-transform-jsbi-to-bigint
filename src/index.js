@@ -217,8 +217,8 @@ export default function(babel) {
       },
       BinaryExpression(path) {
         const {operator, left, right} = path.node;
-        if (operator === 'instanceof' &&
-            t.isIdentifier(right, {name: 'JSBI'})) {
+        if (operator === 'instanceof' && t.isIdentifier(right) &&
+            hasJSBIProperty(path, right.name)) {
           path.replaceWith(
               t.binaryExpression(
                   '===',
