@@ -143,7 +143,7 @@ require('@babel/core').transform(code, {
 1. Push the release commit and tag:
 
     ```sh
-    git push
+    git push && git push --tags
     ```
 
     Our CI then automatically publishes the new release to npm.
