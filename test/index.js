@@ -14,7 +14,7 @@
 import path from 'path';
 import fs from 'fs';
 import assert from 'assert';
-import {transformFileSync} from '@babel/core';
+import {transformFileSync, transformSync, parseSync} from '@babel/core';
 import plugin from '../src/index.js';
 
 describe('babel-plugin-transform-jsbi-to-bigint', () => {
@@ -38,4 +38,40 @@ describe('babel-plugin-transform-jsbi-to-bigint', () => {
       assert.equal(actual.trim(), expected.trim());
     });
   });
+});
+
+
+describe('BigInt numeric literals', () => {
+  const values = [
+    '1e21', '1e100', '1.5', '1e-7', '1e309',
+    '0', '42', '1e20', '0xff', '0b1010', '0o77',
+    '0x20000000000001', '-1e21', '-1.5', '"123456789012345678901234567890"',
+  ];
+  for (const value of values) {
+    it(`preserves the value or runtime error for ${value}`, () => {
+      const source = `import JSBI from 'jsbi'; result = JSBI.BigInt(${value});`;
+      const actual = transformSync(source, {
+        plugins: [plugin],
+        babelrc: false,
+        configFile: false,
+      }).code;
+      // The generated program must be valid syntax even when BigInt will
+      // reject its argument at runtime.
+      parseSync(actual, {babelrc: false, configFile: false});
+      const execute = (code) => Function(`let result; ${code}; return result;`)();
+      const expected = `result = BigInt(${value});`;
+      let result;
+      let expectedError;
+      try {
+        result = execute(expected);
+      } catch (error) {
+        expectedError = error;
+      }
+      if (expectedError) {
+        assert.throws(() => execute(actual), expectedError.constructor);
+      } else {
+        assert.strictEqual(execute(actual), result);
+      }
+    });
+  }
 });
